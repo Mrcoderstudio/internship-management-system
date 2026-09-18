@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #061a33;
+  --color-navy-900: #0a2647;
+  --color-navy-800: #123561;
+  --color-navy-700: #1b4479;
+  --color-navy-600: #245591;
+  --color-cyan-accent: #00c2ff;
+  --color-cyan-soft: #5ad7ff;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  min-height: 100%;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(0, 194, 255, 0.12), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(36, 85, 145, 0.35), transparent 60%),
+    #061a33;
+  color: #e6f1ff;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer components {
+  .card {
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(10, 38, 71, 0.8);
+    padding: 1.25rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+  }
+
+  .input {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(6, 26, 51, 0.7);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .input::placeholder {
+    color: #64748b;
+  }
+  .input:focus {
+    border-color: #00c2ff;
+    box-shadow: 0 0 0 3px rgba(0, 194, 255, 0.3);
+  }
+  .input:disabled {
+    cursor: not-allowed;
+  }
+
+  .label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-ghost,
+  .btn-danger,
+  .btn-success {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    transition: background-color 0.15s, color 0.15s, opacity 0.15s;
+    cursor: pointer;
+  }
+  .btn:disabled,
+  .btn-primary:disabled,
+  .btn-ghost:disabled,
+  .btn-danger:disabled,
+  .btn-success:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .btn-primary {
+    background: #00c2ff;
+    color: #061a33;
+    box-shadow: 0 0 20px rgba(0, 194, 255, 0.35);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: #5ad7ff;
+  }
+
+  .btn-ghost {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    color: #e2e8f0;
+  }
+  .btn-ghost:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-danger {
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    background: rgba(239, 68, 68, 0.1);
+    color: #fca5a5;
+  }
+  .btn-danger:hover:not(:disabled) {
+    background: rgba(239, 68, 68, 0.2);
+  }
+
+  .btn-success {
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    background: rgba(16, 185, 129, 0.1);
+    color: #6ee7b7;
+  }
+  .btn-success:hover:not(:disabled) {
+    background: rgba(16, 185, 129, 0.2);
+  }
+
+  .badge,
+  .badge-pending,
+  .badge-submitted,
+  .badge-approved,
+  .badge-rejected {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.125rem 0.625rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .badge-pending {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fcd34d;
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+  .badge-submitted {
+    background: rgba(0, 194, 255, 0.15);
+    color: #5ad7ff;
+    border-color: rgba(0, 194, 255, 0.3);
+  }
+  .badge-approved {
+    background: rgba(16, 185, 129, 0.15);
+    color: #6ee7b7;
+    border-color: rgba(16, 185, 129, 0.3);
+  }
+  .badge-rejected {
+    background: rgba(239, 68, 68, 0.15);
+    color: #fca5a5;
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(10, 38, 71, 0.6);
+  }
+  .table {
+    width: 100%;
+    min-width: 640px;
+    text-align: left;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    border-collapse: collapse;
+  }
+  .table thead {
+    background: rgba(18, 53, 97, 0.7);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+  }
+  .table th,
+  .table td {
+    padding: 0.75rem 1rem;
+    vertical-align: middle;
+  }
+  .table tbody tr {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 194, 255, 0.25);
+  border-radius: 999px;
+}
